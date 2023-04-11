@@ -104,9 +104,9 @@ cleos push action eosio.token issue '[ "eosio", "10000000000.00000000 WAX", "ini
 cleos push action eosio init '["0", "8,WAX"]' -p eosio
 
 # Create additional accounts
-# atomicassets
+# atomicassets Ensure that the active permission is usable by the smart contract as well
 cleos system newaccount --buy-ram-kbytes 10240 --stake-net "1.00000000 WAX" --stake-cpu "10.00000000 WAX" \
-  eosio atomicassets EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+  eosio atomicassets EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV '{"keys":[{"key": "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","weight": 1}], "accounts": [{"permission": {"actor":"atomicassets", "permission":"eosio.code"}, "weight": 1}], "waits": [], "threshold": 1}'
 cleos set contract atomicassets /contracts atomicassets.wasm atomicassets.abi
 # Wait a bit for the contract to be really deployed
 sleep 2
