@@ -41,5 +41,7 @@ CMD [ \
   "--producer-name", "eosio", \
   # The build process sadly seems to leave the node in a bad state. This makes the node usable.
   # It's of course theoretically slow, but since we only have like 7 blocks after the build...
-  "--hard-replay" \
+  # --hard-replay does for some reason not work on macOS, but --replay-blockchain does and works
+  # just as fine
+  "--replay-blockchain" \
 ]
