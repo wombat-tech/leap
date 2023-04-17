@@ -35,6 +35,9 @@ CMD [ \
   "--http-server-address", "0.0.0.0:8888", \
   # Turn of host header validation since we are not running under a domain
   "--http-validate-host", "false", \
+  # Maximum time for processing a request, -1 for unlimited (eosio::http_plugin)
+  # Using unlimited here to avoid timeout_exception `deadline ${d} exceeded by ${t}us`
+  "--http-max-response-time-ms", "-1", \
   # Not 100% sure if needed - but also listed in https://developers.eos.io/welcome/latest/tutorials/bios-boot-sequence
   "--enable-stale-production", \
   # Set a producer name. Also not 100% sure if needed, but we want to produce blocks.
