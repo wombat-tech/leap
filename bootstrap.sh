@@ -14,7 +14,7 @@ set -e
     --abi-serializer-max-time-ms 10000 \
     --max-transaction-time 10000 \
     --enable-stale-production --producer-name eosio --plugin eosio::http_plugin \
-    --http-server-address 0.0.0.0:8888 --http-validate-host false &
+    --http-server-address 0.0.0.0:8888 --http-validate-host false --http-max-response-time-ms -1 &
 
 # Wait a bit for stability
 sleep 3
