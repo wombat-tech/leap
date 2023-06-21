@@ -13,7 +13,7 @@ The Docker image is available at
 ```
 ghcr.io/wombat-tech/leap:v$LEAP_VERSION-$BUILD
 e.g.
-ghcr.io/wombat-tech/leap:v3.2.3-4
+ghcr.io/wombat-tech/leap:v4.0.2-1
 ```
 
 # Start node
@@ -21,7 +21,7 @@ ghcr.io/wombat-tech/leap:v3.2.3-4
 Simply run
 
 ```shell
-docker run -p 8085:8888 ghcr.io/wombat-tech/leap:v3.2.3-4
+docker run -p 8085:8888 ghcr.io/wombat-tech/leap:v4.0.2-1
 ```
 
 The node RPC is then available under `localhost:8085`.

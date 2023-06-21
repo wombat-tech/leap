@@ -5,9 +5,9 @@ RUN apt update
 RUN apt --assume-yes install curl
 
 # Download and install leap. --location to follow redirect
-RUN curl -o leap_3.2.3-ubuntu22.04_amd64.deb --location \
-    https://github.com/AntelopeIO/leap/releases/download/v3.2.3/leap_3.2.3-ubuntu22.04_amd64.deb
-RUN apt --assume-yes --allow-downgrades install ./leap_3.2.3-ubuntu22.04_amd64.deb
+RUN curl -o leap_4.0.2-ubuntu22.04_amd64.deb --location \
+    https://github.com/AntelopeIO/leap/releases/download/v4.0.2/leap_4.0.2-ubuntu22.04_amd64.deb
+RUN apt --assume-yes --allow-downgrades install ./leap_4.0.2-ubuntu22.04_amd64.deb
 
 # Expose the port that the RPC will be running on
 EXPOSE 8888
