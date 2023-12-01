@@ -113,6 +113,15 @@ sleep 2
 cleos push action atomicassets init '{}' -p atomicassets
 cleos push action atomicassets admincoledit '{"collection_format_extension":[{"name":"name","type":"string"},{"name":"img","type":"ipfs"},{"name":"description","type":"string"},{"name":"url","type":"string"},{"name":"images","type":"string"},{"name":"socials","type":"string"},{"name":"creator_info","type":"string"}]}' -p atomicassets
 
+# atomicmarket
+cleos system newaccount --buy-ram-kbytes 10240 --stake-net "1.00000000 WAX" --stake-cpu "10.00000000 WAX" \
+  eosio atomicmarket EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV '{"keys":[{"key": "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","weight": 1}], "accounts": [{"permission": {"actor":"atomicmarket", "permission":"eosio.code"}, "weight": 1}], "waits": [], "threshold": 1}'
+cleos set contract atomicmarket /contracts atomicmarket.wasm atomicmarket.abi
+# Wait a bit for the contract to be really deployed
+sleep 2
+cleos push action atomicmarket init '{}' -p atomicmarket
+cleos push action atomicmarket addconftoken '{"token_contract":"eosio.token","token_symbol":"8,WAX"}' -p atomicmarket
+
 # genialwombat
 cleos system newaccount  --buy-ram-kbytes 1024 --stake-net "1.00000000 WAX" --stake-cpu "10.00000000 WAX" \
   eosio genialwombat EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
